@@ -1,7 +1,7 @@
 # Michal's dev setup
 
 ## To do
-- [ ] Install Brew on mac
+- [x] Install Brew on mac
 - [ ] Install ZSH
 - [ ] Install NeoVim
 - [ ] Configure Dotfiles
