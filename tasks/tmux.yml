@@ -3,3 +3,9 @@
     name: tmux
     state: present
   when: ansible_distribution == 'MacOSX'
+- name: "[Arch] Install Tmux"
+  become: true
+  community.general.pacman:
+    name: tmux
+    state: present
+  when: ansible_distribution == 'Archlinux'

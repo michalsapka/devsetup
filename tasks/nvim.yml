@@ -3,3 +3,9 @@
     name: nvim
     state: present
   when: ansible_distribution == 'MacOSX'
+- name: "[Arch] Install Neovim"
+  become: true
+  community.general.pacman:
+    name: neovim
+    state: present
+  when: ansible_distribution == 'Archlinux'
