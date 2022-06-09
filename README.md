@@ -4,8 +4,12 @@
 - [x] Install Brew on mac
 - [ ] Install ZSH
 - [ ] Install NeoVim
+  - [x] MacOS
+  - [ ] Arch
 - [ ] Configure Dotfiles
 - [ ] Install Tmux
+  - [x] MacOS
+  - [ ] Arch
 - [ ] Install ASDF
   - [ ] Install ruby
   - [ ] Install Java
@@ -21,3 +25,4 @@
 - [ ] Install newsboat
 - [ ] Install Neofetch
 - [ ] Install curl
+- [x] Install IntelliJ (bacause java is terror)

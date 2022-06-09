@@ -1,0 +1,5 @@
+- name: "[MacOS] Install Intellij-Idea"
+  community.general.homebrew:
+    name: intellij-idea
+    state: present
+  when: ansible_distribution == 'MacOSX'

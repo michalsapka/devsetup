@@ -1,9 +1,10 @@
 ---
-- name: Check if Homebrew is already installed
+- name: "[MacOS] Check if Homebrew is already installed"
   stat:
     path: /usr/local/bin/brew
   register: b
-- name: Install Homebrew
+  when: ansible_distribution == 'MacOSX'
+- name: "[MacOS] Install Homebrew"
   shell: curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
-  when: not b.stat.exists
+  when: ansible_distribution == 'MacOSX' and not b.stat.exists
 
