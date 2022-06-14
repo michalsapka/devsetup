@@ -33,6 +33,7 @@
 - name: "[MacOS][Zendesk] Tap vendir"
   community.general.homebrew_tap:
     name: vmware-tanzu/carvel
+  when: ansible_distribution == 'MacOSX'
   tags:
     - zendesk
 - name: "[MacOS][Zendesk] Install vendir"
