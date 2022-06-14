@@ -1,0 +1,20 @@
+- name: "[MacOS] Install kubectl"
+  community.general.homebrew:
+    name: kubectl
+    state: present
+  when: ansible_distribution == 'MacOSX'
+- name: "[MacOS][Zendesk] Clone Zendesk Kubectl config"
+  ansible.builtin.git:
+    repo: git@github.com:zendesk/kubectl_config.git
+    dest: ~/code/kubectl_config
+  when: ansible_distribution == 'MacOSX'
+  tags:
+    - zendesk
+- name: "[MacOS][Zendesk] Configure kubectl for Zendesk"
+  ansible.builtin.command: ~/code/kubectl_config/bin/setup_kubeconfig
+  tags:
+    - zendesk
+- name: "[MacOS][Zendesk] Add Zendesk kubectl config to zshrnv"
+  shell: echo "source ~/code/kubectl_config/dotfiles/kubectl_stuff.bash" >> ~/.zshenv
+  tags:
+    - zendesk
