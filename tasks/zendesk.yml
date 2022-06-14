@@ -1,3 +1,4 @@
+# Kubernetes
 - name: "[MacOS] Install kubectl"
   community.general.homebrew:
     name: kubectl
@@ -12,9 +13,32 @@
     - zendesk
 - name: "[MacOS][Zendesk] Configure kubectl for Zendesk"
   ansible.builtin.command: ~/code/kubectl_config/bin/setup_kubeconfig
+  when: ansible_distribution == 'MacOSX'
   tags:
     - zendesk
 - name: "[MacOS][Zendesk] Add Zendesk kubectl config to zshrnv"
   shell: echo "source ~/code/kubectl_config/dotfiles/kubectl_stuff.bash" >> ~/.zshenv
+  when: ansible_distribution == 'MacOSX'
+  tags:
+    - zendesk
+
+# Extra tools
+- name: "[MacOS][Zendesk] Install jsonnet"
+  community.general.homebrew:
+    name: jsonnet
+    state: present
+  when: ansible_distribution == 'MacOSX'
+  tags:
+    - zendesk
+- name: "[MacOS][Zendesk] Tap vendir"
+  community.general.homebrew_tap:
+    name: vmware-tanzu/carvel
+  tags:
+    - zendesk
+- name: "[MacOS][Zendesk] Install vendir"
+  community.general.homebrew:
+    name: vendir
+    state: present
+  when: ansible_distribution == 'MacOSX'
   tags:
     - zendesk
