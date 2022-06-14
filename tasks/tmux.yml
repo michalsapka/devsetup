@@ -9,3 +9,7 @@
     name: tmux
     state: present
   when: ansible_distribution == 'Archlinux'
+- name: "Install Tmux Plugin Manager"
+  ansible.builtin.git:
+    repo:  https://github.com/tmux-plugins/tpm
+    dest: ~/.tmux/plugins/tpm
