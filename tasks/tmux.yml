@@ -13,3 +13,5 @@
   ansible.builtin.git:
     repo:  https://github.com/tmux-plugins/tpm
     dest: ~/.tmux/plugins/tpm
+- name: "Install Tmux plugins"
+  shell: ~/.tmux/plugins/tpm/bin/install_plugins
