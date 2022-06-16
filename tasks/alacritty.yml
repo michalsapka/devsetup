@@ -1,15 +1,17 @@
-- name: "[MacOS] Install Neovim"
+---
+
+- name: "[MacOS] Install Alacritty"
   community.general.homebrew:
-    name: nvim
+    name: alacritty
     state: present
   when: ansible_distribution == 'MacOSX'
-- name: "[Arch] Install Neovim"
+- name: "[Arch] Install Alacritty"
   become: true
   community.general.pacman:
-    name: neovim
+    name: alacritty
     state: present
   when: ansible_distribution == 'Archlinux'
-- name: "Setup Neovim"
-  shell: stow nvim
+- name: "Setup Alacritty"
+  shell: stow alacritty
   args:
     chdir: ~/dotfiles

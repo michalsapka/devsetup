@@ -1,0 +1,7 @@
+---
+
+- name: "Fetch dotfiles"
+  ansible.builtin.git:
+    repo: git@github.com:michalsapka/dotfiles.git
+    dest: ~/dotfiles
+    key_file: ~/.ssh/id_rsa

@@ -6,7 +6,9 @@
     debug: msg="{{ ansible_distribution }}"
   - include_tasks: tasks/macos_basics.yml
   - include_tasks: tasks/arch.yml
-  - include_tasks: tasks/zendesk.yml
-  - include_tasks: tasks/nvim.yml
+  - include_tasks: tasks/stow.yml
+  - include_tasks: tasks/alacritty.yml
   - include_tasks: tasks/tmux.yml
+  - include_tasks: tasks/nvim.yml
+  - include_tasks: tasks/zendesk.yml
   - include_tasks: tasks/intellij.yml

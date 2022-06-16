@@ -1,15 +1,11 @@
-- name: "[MacOS] Install Neovim"
+- name: "[MacOS] Install Stow"
   community.general.homebrew:
-    name: nvim
+    name: stow
     state: present
   when: ansible_distribution == 'MacOSX'
-- name: "[Arch] Install Neovim"
+- name: "[Arch] Install Stow"
   become: true
   community.general.pacman:
-    name: neovim
+    name: stow
     state: present
   when: ansible_distribution == 'Archlinux'
-- name: "Setup Neovim"
-  shell: stow nvim
-  args:
-    chdir: ~/dotfiles
