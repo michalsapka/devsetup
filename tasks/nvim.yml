@@ -13,3 +13,14 @@
   shell: stow nvim
   args:
     chdir: ~/dotfiles
+- name: "[MacOS] Install Rg"
+  community.general.homebrew:
+    name: ripgrep
+    state: present
+  when: ansible_distribution == 'MacOSX'
+- name: "[Arch] Install Rg"
+  become: true
+  community.general.pacman:
+    name: ripgrep
+    state: present
+  when: ansible_distribution == 'Archlinux'
