@@ -37,3 +37,15 @@
     name: github-cli
     state: present
   when: ansible_distribution == 'Archlinux'
+
+- name: "[MacOS] Install exa"
+  community.general.homebrew_cask:
+    name: exa
+    state: present
+  when: ansible_distribution == 'MacOSX'
+- name: "[Arch] Install exa"
+  become: true
+  community.general.pacman:
+    name: exa
+    state: present
+  when: ansible_distribution == 'Archlinux'
