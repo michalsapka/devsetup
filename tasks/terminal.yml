@@ -13,3 +13,27 @@
   shell: stow alacritty
   args:
     chdir: ~/dotfiles
+
+- name: "[MacOS] Install Starship"
+  community.general.homebrew:
+    name: starship
+    state: present
+  when: ansible_distribution == 'MacOSX'
+- name: "[Arch] Install Starship"
+  become: true
+  community.general.pacman:
+    name: starship
+    state: present
+  when: ansible_distribution == 'Archlinux'
+
+- name: "[MacOS] Install Github"
+  community.general.homebrew:
+    name: github-cli
+    state: present
+  when: ansible_distribution == 'MacOSX'
+- name: "[Arch] Install Github"
+  become: true
+  community.general.pacman:
+    name: github-cli
+    state: present
+  when: ansible_distribution == 'Archlinux'
