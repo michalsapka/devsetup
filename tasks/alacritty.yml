@@ -1,15 +1,11 @@
-- name: "[MacOS] Install Alacritty"
+- name: "[MacOS] Install exa"
   community.general.homebrew_cask:
-    name: alacritty
+    name: exa
     state: present
   when: ansible_distribution == 'MacOSX'
-- name: "[Arch] Install Alacritty"
+- name: "[Arch] Install exa"
   become: true
   community.general.pacman:
-    name: alacritty
+    name: exa
     state: present
   when: ansible_distribution == 'Archlinux'
-- name: "Setup Alacritty"
-  shell: stow alacritty
-  args:
-    chdir: ~/dotfiles
